@@ -1,9 +1,9 @@
-SELECT
+select
     date_date,
-    COUNT(orders_id) AS nb_trans,
-    ROUND (SUM(revenue_ord),2) AS total_revenue,
-    ROUND (SUM(revenue_ord) / COUNT(orders_id),2) AS average_basket,
-    ROUND (SUM(margin_ord),2) AS total_margin_ord,
-    ROUND (SUM(operational_margin),2) AS total_operational_margin
-FROM {{ ref('int_orders_margin') }}
-GROUP BY date_date
+    count(orders_id) as nb_trans,
+    round(sum(revenue_ord), 2) as total_revenue,
+    round(sum(revenue_ord) / count(orders_id), 2) as average_basket,
+    round(sum(margin_ord), 2) as total_margin_ord,
+    round(sum(operational_margin), 2) as total_operational_margin
+from {{ ref("int_orders_margin") }}
+group by date_date
